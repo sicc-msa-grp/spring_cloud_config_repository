@@ -1,0 +1,37 @@
+# 서버포트
+server:
+  port: 1202
+
+# ribbon 설정
+carrot:
+  ribbon:
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 1
+
+# eureka client
+eureka:
+  instance:
+    prefer-ip-address: true # 서비스이름 대신 IP 주소 등록
+  client:
+    register-with-eureka: true # 유레카 서버 등록
+    fetch-registry: true # 유레카 서비스 위치
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# hystrix 설정 (https://github.com/Netflix/Hystrix/wiki/Configuration)
+hystrix:
+  threadpool:
+    carrotInfoThreadPool: # HystrixCommand 설정된 thread pool key명
+      coreSize: 30 # thread pool의 개수를 정의
+      maxQueueSize: 10 # thread pool 앞에 배치할 큐와 큐에 넣을 요청수 정의 ?
+      
+  command:
+    carrotInfo: # HystrixCommand 설정된 command key명
+      execution:
+        isolation:
+          thread: # thread or semaphore
+            timeoutInMilliseconds: 3000 # 3초후 타임아웃됨
+      circuitBreaker:
+        requestVolumeThreshold: 20 # 서킷브레이커 헬스를 계산하는 요청의 최소 숫자 (20번이 기본) = 20번 이상부터 체크 ***
+        errorThresholdPercentage: 50 # 서킷 오픈되는 에러% (50% 기본)
+        sleepWindowInMilliseconds: 5000 # 한번 서킷이 오픈시 5초간 호출 차단 -> 5초 경과후 단 1개 호출 허용 -> 이것이 성공시 서킷닫음 -> 여전히 실패시 5초 서킷오픈 연장

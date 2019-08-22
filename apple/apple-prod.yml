@@ -1,0 +1,32 @@
+# 서버포트
+server:
+  port: 1301
+
+spring:
+  # datasource 설정 (h2 db사용 위함) - https://projectjt.tistory.com/4
+  datasource:
+    driverClassName: org.h2.Driver # h2 cosole Driver Class
+    url: jdbc:h2:~/test # h2 console JDBC URL
+    username: sa # h2 console User Name
+    password: # h2 console Password
+  # h2 db 설정
+  h2:
+    console: 
+      enabled: true # h2 콘솔 사용
+      path: /h2-db-console # h2 콘솔 접속 path
+
+# ribbon 설정
+banana:
+  ribbon:
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 1
+
+# eureka client
+eureka:
+  instance:
+    prefer-ip-address: true # 서비스이름 대신 IP 주소 등록
+  client:
+    register-with-eureka: true # 유레카 서버 등록
+    fetch-registry: true # 유레카 서비스 위치
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
