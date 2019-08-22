@@ -1,6 +1,12 @@
 # 서버포트
 server:
-  port: 1901
+  port: 1101
+
+# 테스트
+practice:
+  make:
+    you:
+      perfect: 'practice make you perfect!!'
 
 spring:
   # datasource 설정 (h2 db사용 위함) - https://projectjt.tistory.com/4
