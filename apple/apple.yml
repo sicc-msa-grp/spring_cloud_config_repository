@@ -1,6 +1,6 @@
 # 서버포트
 server:
-  port: 1101
+  port: 1901
 
 spring:
   # datasource 설정 (h2 db사용 위함) - https://projectjt.tistory.com/4
