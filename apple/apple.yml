@@ -6,7 +6,7 @@ server:
 practice:
   make:
     you:
-      perfect: 'practice make you perfect!!'
+      perfect: practice make you perfect!!
 
 spring:
   # datasource 설정 (h2 db사용 위함) - https://projectjt.tistory.com/4
