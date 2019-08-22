@@ -1,25 +1,21 @@
-# server port
+# ì„œë²„í¬íŠ¸
 server:
   port: 1101
 
 spring:
-  application:
-    name: apple # ¸¶ÀÌÅ©·Î ¼­ºñ½º¸í
-
-  # datasource ¼³Á¤ (h2 db»ç¿ë À§ÇÔ) - https://projectjt.tistory.com/4
+  # datasource ì„¤ì • (h2 dbì‚¬ìš© ìœ„í•¨) - https://projectjt.tistory.com/4
   datasource:
     driverClassName: org.h2.Driver # h2 cosole Driver Class
     url: jdbc:h2:~/test # h2 console JDBC URL
     username: sa # h2 console User Name
     password: # h2 console Password
-
-  # h2 db ¼³Á¤
+  # h2 db ì„¤ì •
   h2:
     console: 
-      enabled: true # h2 ÄÜ¼Ö »ç¿ë
-      path: /h2-db-console # h2 ÄÜ¼Ö Á¢¼Ó path
+      enabled: true # h2 ì½˜ì†” ì‚¬ìš©
+      path: /h2-db-console # h2 ì½˜ì†” ì ‘ì† path
 
-# ribbon ¼³Á¤
+# ribbon ì„¤ì •
 banana:
   ribbon:
     MaxAutoRetries: 0
@@ -28,10 +24,9 @@ banana:
 # eureka client
 eureka:
   instance:
-    prefer-ip-address: true # ¼­ºñ½ºÀÌ¸§ ´ë½Å IP ÁÖ¼Ò µî·Ï
+    prefer-ip-address: true # ì„œë¹„ìŠ¤ì´ë¦„ ëŒ€ì‹  IP ì£¼ì†Œ ë“±ë¡
   client:
-    register-with-eureka: true # À¯·¹Ä« ¼­¹ö µî·Ï
-    fetch-registry: true # À¯·¹Ä« ¼­ºñ½º À§Ä¡
+    register-with-eureka: true # ìœ ë ˆì¹´ ì„œë²„ ë“±ë¡
+    fetch-registry: true # ìœ ë ˆì¹´ ì„œë¹„ìŠ¤ ìœ„ì¹˜
     service-url:
-      defaultZone: http://localhost:8761/eureka/  
-    
+      defaultZone: http://localhost:8761/eureka/
